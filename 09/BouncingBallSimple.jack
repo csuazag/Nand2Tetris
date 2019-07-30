@@ -1,0 +1,78 @@
+class BouncingBallSimple{
+
+    static int UPDATE_RATE, BOX_WIDTH, BOX_HEIGHT;
+    field int ballRadius, ballX, ballY, ballSpeedX, ballSpeedY;
+    field String coma, ball, velocidad, parDer;
+
+
+    constructor BouncingBallSimple new (){
+        let ballRadius = 50;
+        let ballX = ballRadius + 50;
+        let ballY = ballRadius + 20;
+        let ballSpeedX = 3;
+        let ballSpeedY = 2;
+
+        let UPDATE_RATE = 30;
+        //Tamanno de la pantalla jack
+        let BOX_WIDTH  = 511;
+        let BOX_HEIGHT = 255;
+
+        let coma = ",";
+        let ball = "Ball(";
+        let velocidad = "Speed(";
+        let parDer = ")";
+
+        do run();
+        return this;
+    }
+
+    method void run(){
+        while (true){
+            let ballX = ballX + ballSpeedX;
+            let ballY = ballY + ballSpeedY;
+
+            if ( (ballX - ballRadius) < 0) {
+                let ballSpeedX = -ballSpeedX; 
+                let ballX = ballRadius; 
+            }else{
+                if( (ballX + ballRadius) > BOX_WIDTH){ 
+                    let ballSpeedX = -ballSpeedX;
+                    let ballX = BOX_WIDTH - ballRadius;
+                }
+            }        
+
+            if (ballY - ballRadius < 0) {
+                let ballSpeedY = -ballSpeedY;
+                let ballY = ballRadius;
+            } else {
+                if (ballY + ballRadius > BOX_HEIGHT) {
+                    let ballSpeedY = -ballSpeedY;
+                    let ballY = BOX_HEIGHT - ballRadius;
+                }
+            }
+
+        do Screen.setColor(true);
+        do Screen.drawCircle(ballX, ballY, ballRadius);        
+
+        do Output.moveCursor(0,0);
+        do Output.printString(velocidad);
+        do Output.printInt(ballSpeedX);
+        do Output.printString(coma);
+        do Output.printInt(ballSpeedY);
+        do Output.printString(parDer);
+
+        do Output.moveCursor(1,0);
+        do Output.printString(ball);
+        do Output.printInt(ballX);
+        do Output.printString(coma);
+        do Output.printInt(ballY);
+        do Output.printString(parDer);
+
+        do Sys.wait(1800/ UPDATE_RATE);        
+        do Screen.setColor(false);
+        do Screen.drawCircle(ballX, ballY, ballRadius);
+
+        }
+        return;
+    }
+}

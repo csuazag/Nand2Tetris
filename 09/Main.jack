@@ -1,0 +1,7 @@
+class Main {
+    function void main(){
+        var BouncingBallSimple b;
+        let b = BouncingBallSimple.new();
+        return;
+    }
+}
