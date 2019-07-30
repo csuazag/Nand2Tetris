@@ -8,4 +8,9 @@ All the software tools and course materials can be downloaded freely and in open
 
 The hardware projects can be built on any personal computer using a simple Hardware Description Language (HDL), and a supplied Hardware Simulator.
 
-The software projects (assembler, virtual machine, and compiler for a simple object-based language)  developed using PYTHON. A 
+The software projects (assembler, virtual machine, and compiler for a simple object-based language).
+
+
+Languages used: HDL, Assembler, Python. 
+
+Made in 2018-1
